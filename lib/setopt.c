@@ -224,6 +224,7 @@ static CURLcode httpauth(struct Curl_easy *data, bool proxy,
     }
 
     /* switch off bits we cannot support */
+    auth &= ~CURLAUTH_NTLM; /* no NTLM support */
 #ifndef USE_SPNEGO
     auth &= ~CURLAUTH_NEGOTIATE; /* no Negotiate (SPNEGO) auth without GSS-API
                                     or SSPI */
